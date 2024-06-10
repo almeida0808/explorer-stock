@@ -9,6 +9,10 @@ const salesController = new SalesController();
 
 salesRoutes.use(ensureAuthenticated, verifyUserAuthorization());
 
-salesRoutes.get("/", verifyUserAuthorization(["admin"]), salesController.index);
+salesRoutes.get(
+  "/",
+  verifyUserAuthorization(["admin", "sale", "costumer"]),
+  salesController.index
+);
 
 module.exports = salesRoutes;

@@ -9,10 +9,14 @@ const productsController = new ProductsController();
 
 productsRoutes.use(ensureAuthenticated);
 
-productsRoutes.get("/", productsController.index);
+productsRoutes.get(
+  "/",
+  verifyUserAuthorization(["admin", "costumer"]),
+  productsController.index
+);
 productsRoutes.post(
   "/",
-  verifyUserAuthorization("admin"),
+  verifyUserAuthorization(["admin", "sale"]),
   productsController.create
 );
 

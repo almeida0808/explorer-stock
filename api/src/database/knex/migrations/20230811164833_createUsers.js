@@ -7,7 +7,7 @@ exports.up = (knex) =>
 
     // enum basicamente é uma coluna que só pode ter valores pré definidos , colocamos o nome da coluna de role e nessa caso definimoso como valores o costumer e admin
     table
-      .enum("role", ["admin", "costumer"], {
+      .enum("role", ["admin", "costumer", "sale"], {
         useNative: true, // informa que é pra usar o driver nativo do banco de dados
         enumName: "roles", // nome do enum
       })
